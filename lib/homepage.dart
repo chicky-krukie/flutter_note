@@ -28,11 +28,17 @@ class HomePage extends StatelessWidget {
               //tab 1
               NotesTab(),
               //tab 2
-              TodoTab()
+              TodoTab(),
             ],
             )
             )
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            
+          },
+          child: Icon(Icons.add, color: Colors.white),
         ),
       ),
     );
