@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_note/tabs/notes_tab.dart';
+import 'package:flutter_note/tabs/todo_tab.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -6,9 +8,6 @@ class HomePage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('T A B'),
-        // ),
         body: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
@@ -24,7 +23,15 @@ class HomePage extends StatelessWidget {
                 color: Colors.amber,
                 ),
               ),
-            ])
+            ]),
+            Expanded(child: TabBarView(children: [
+              //tab 1
+              NotesTab(),
+              //tab 2
+              TodoTab()
+            ],
+            )
+            )
           ],
         ),
       ),
