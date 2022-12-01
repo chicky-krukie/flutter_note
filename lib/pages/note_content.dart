@@ -25,39 +25,25 @@ class NoteContent extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              TextFormField(
+          child:
+            Expanded(
+              child: TextFormField(
+                autofocus: false,
+                maxLines: null,
                 keyboardType: TextInputType.multiline,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
                 ),
                 decoration: InputDecoration(
-                  hintText: 'Title',
+                  hintText: "What's on your mind...",
                   hintStyle: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500),
+                    color: Colors.grey[800],
+                  ),
                   focusedBorder: InputBorder.none,
                 ),
               ),
-              Expanded(
-                child: TextFormField(
-                  autofocus: false,
-                  maxLines: null,
-                  keyboardType: TextInputType.multiline,
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
-                  decoration: const InputDecoration(
-                    focusedBorder: InputBorder.none,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ));
+            ),
+        )
+      );
   }
 }

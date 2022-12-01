@@ -3,6 +3,7 @@ import 'package:flutter_note/tabs/notes_tab.dart';
 import 'package:flutter_note/tabs/todo_tab.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -11,8 +12,7 @@ class HomePage extends StatelessWidget {
         body: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            // ignore: prefer_const_constructors
-            TabBar(tabs: const [
+            const TabBar(tabs: [
               Tab(
                 icon: Icon(
                   Icons.book,
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ]),
-            Expanded(
+            const Expanded(
                 child: TabBarView(
               children: [
                 //tab 1
