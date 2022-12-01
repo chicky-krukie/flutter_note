@@ -5,7 +5,10 @@ class TodoTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text('todo'),
+        child: Text(
+          'Add Todo Here',
+          style: TextStyle(color: Colors.grey)
+          ),
       ),
     );
   }

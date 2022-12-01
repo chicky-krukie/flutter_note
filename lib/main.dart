@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // ignore: unnecessary_new
       theme: new ThemeData(
-        // scaffoldBackgroundColor: const Color.fromARGB(0, 239, 239, 239),
+        scaffoldBackgroundColor: const Color.fromARGB(0, 239, 239, 239),
         primarySwatch: Colors.amber
         ),
         
