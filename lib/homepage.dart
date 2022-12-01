@@ -13,32 +13,29 @@ class HomePage extends StatelessWidget {
           children: [
             // ignore: prefer_const_constructors
             TabBar(tabs: const [
-              Tab(icon: Icon(
-                Icons.book,
-                color: Colors.amber,
+              Tab(
+                icon: Icon(
+                  Icons.book,
+                  color: Colors.amber,
                 ),
               ),
-              Tab(icon: Icon(
-                Icons.check_box_rounded,
-                color: Colors.amber,
+              Tab(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.amber,
                 ),
               ),
             ]),
-            Expanded(child: TabBarView(children: [
-              //tab 1
-              NotesTab(),
-              //tab 2
-              TodoTab(),
-            ],
-            )
-            )
+            Expanded(
+                child: TabBarView(
+              children: [
+                //tab 1
+                NotesTab(),
+                //tab 2
+                TodoTab(),
+              ],
+            ))
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            
-          },
-          child: Icon(Icons.add, color: Colors.white),
         ),
       ),
     );
