@@ -28,18 +28,6 @@ class _NotesTabState extends State<NotesTab> {
     });
   }
 
-  // create new notes
-  void createNewNotes() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return NoteContent(
-            controller: _controller,
-            onSave: saveNewNotes,
-          );
-        });
-  }
-
   // delete notes
   void deleteNotes(int index) {
     setState(() {
