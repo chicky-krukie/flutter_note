@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class NoteTile extends StatelessWidget {
-  const NoteTile({super.key});
+  final String noteName;
+
+  const NoteTile({
+    super.key,
+    required this.noteName,
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +19,8 @@ class NoteTile extends StatelessWidget {
           color: Colors.grey[800],
           borderRadius: BorderRadius.circular(18),
         ),
-        child: const Text(
-          'Try lang eme eme lang hahaha',
+        child: Text(
+          noteName,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(color: Colors.white),
