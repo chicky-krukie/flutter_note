@@ -10,11 +10,35 @@ class NotesTab extends StatefulWidget {
 }
 
 class _NotesTabState extends State<NotesTab> {
+  // text controller
+  final _controller = TextEditingController();
+
   // List of notes
   List noteList = [
     ['Note 1'],
     ['Note 2'],
   ];
+
+  // save new notes
+  void saveNewNotes() {
+    setState(() {
+      noteList.add([_controller.text]);
+      _controller.clear();
+      Navigator.of(context).pop();
+    });
+  }
+
+  // create new notes
+  void createNewNotes() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return NoteContent(
+            controller: _controller,
+            onSave: saveNewNotes,
+          );
+        });
+  }
 
   // delete notes
   void deleteNotes(int index) {
@@ -38,8 +62,13 @@ class _NotesTabState extends State<NotesTab> {
             })),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NoteContent()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => NoteContent(
+                          controller: _controller,
+                          onSave: saveNewNotes,
+                        )));
           },
           child: const Icon(Icons.add, color: Colors.white),
         ),
