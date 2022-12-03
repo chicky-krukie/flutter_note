@@ -16,6 +16,13 @@ class _NotesTabState extends State<NotesTab> {
     ['Note 2'],
   ];
 
+  // delete notes
+  void deleteNotes(int index) {
+    setState(() {
+      noteList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,13 +31,15 @@ class _NotesTabState extends State<NotesTab> {
         body: ListView.builder(
             itemCount: noteList.length,
             itemBuilder: ((context, index) {
-              return NoteTile(noteName: noteList[index][0],);
+              return NoteTile(
+                noteName: noteList[index][0],
+                deleteFunction: (context) => deleteNotes(index),
+              );
             })),
-            floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
-            MaterialPageRoute(builder: (context) => NoteContent())
-            );
+                MaterialPageRoute(builder: (context) => NoteContent()));
           },
           child: const Icon(Icons.add, color: Colors.white),
         ),
