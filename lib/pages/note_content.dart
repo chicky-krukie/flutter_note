@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NoteContent extends StatelessWidget {
-  const NoteContent({super.key});
+  final controller;
+  VoidCallback onSave;
+
+  NoteContent({super.key, required this.controller, required this.onSave});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,9 +14,7 @@ class NoteContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: GestureDetector(
-                onTap: () {
-                  print('tapped');
-                },
+                onTap: onSave,
                 child: const Icon(Icons.check),
               ),
             )
@@ -25,38 +27,23 @@ class NoteContent extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
+          child:
+              // get user input
               TextFormField(
-                keyboardType: TextInputType.multiline,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),
-                decoration: InputDecoration(
-                  hintText: 'Title',
-                  hintStyle: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500),
-                  focusedBorder: InputBorder.none,
-                ),
+            controller: controller,
+            autofocus: false,
+            maxLines: null,
+            keyboardType: TextInputType.multiline,
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+            decoration: InputDecoration(
+              hintText: "What's on your mind...",
+              hintStyle: TextStyle(
+                color: Colors.grey[800],
               ),
-              Expanded(
-                child: TextFormField(
-                  autofocus: false,
-                  maxLines: null,
-                  keyboardType: TextInputType.multiline,
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
-                  decoration: const InputDecoration(
-                    focusedBorder: InputBorder.none,
-                  ),
-                ),
-              ),
-            ],
+              focusedBorder: InputBorder.none,
+            ),
           ),
         ));
   }
