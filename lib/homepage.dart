@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ]),
-            const Expanded(
+             Expanded(
                 child: TabBarView(
               children: [
                 //tab 1
